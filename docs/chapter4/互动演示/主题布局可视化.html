@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Butterfly 主题布局可视化</title>
+  <style>
+    :root {
+      --bg: #f6f4ee;
+      --ink: #1c2b2d;
+      --card: #ffffff;
+      --line: #d8d2c6;
+      --accent: #cc6f45;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "PingFang SC", sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at 20% 10%, #fff8e8 0%, var(--bg) 50%, #ece7de 100%);
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 16px;
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 2fr 1fr;
+    }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+    h1, h2 { margin: 0 0 12px; }
+    .layout {
+      display: grid;
+      gap: 10px;
+      grid-template-areas:
+        "nav nav"
+        "hero hero"
+        "main aside"
+        "comments comments"
+        "footer footer";
+      grid-template-columns: 1.6fr .9fr;
+    }
+    .block {
+      border: 1px dashed var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      background: #fffdf8;
+      transition: all .25s ease;
+    }
+    .block.is-off {
+      opacity: .28;
+      filter: grayscale(1);
+    }
+    .nav { grid-area: nav; }
+    .hero { grid-area: hero; }
+    .main { grid-area: main; min-height: 140px; }
+    .aside { grid-area: aside; min-height: 140px; }
+    .comments { grid-area: comments; }
+    .footer { grid-area: footer; }
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      margin-right: 6px;
+      margin-bottom: 6px;
+      font-size: 12px;
+    }
+    .controls {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .controls label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+    pre {
+      margin: 0;
+      background: #121a1f;
+      color: #eaf0f7;
+      border-radius: 10px;
+      padding: 10px;
+      overflow-x: auto;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    @media (max-width: 900px) {
+      .wrap { grid-template-columns: 1fr; }
+      .layout {
+        grid-template-areas:
+          "nav"
+          "hero"
+          "main"
+          "aside"
+          "comments"
+          "footer";
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="panel">
+      <h1>主题布局可视化：Weyumm的博客</h1>
+      <p>主题：<strong>butterfly</strong>，菜单数量：7</p>
+      <div class="layout">
+        <div class="block nav" data-key="menu">
+          <strong>导航区</strong>
+          <div><span class="pill">首页</span><span class="pill">仓库</span><span class="pill">标签</span><span class="pill">分类</span><span class="pill">友链</span><span class="pill">追番</span><span class="pill">关于</span></div>
+        </div>
+        <div class="block hero" data-key="subtitle">
+          <strong>首页主视觉</strong>
+          <p>副标题与打字特效区域</p>
+        </div>
+        <div class="block main" data-key="cover">
+          <strong>文章主栏</strong>
+          <p>封面、摘要、文章元信息</p>
+        </div>
+        <div class="block aside" data-key="live2d">
+          <strong>侧边扩展栏</strong>
+          <p>Live2D / 时钟 / 组件挂载区</p>
+        </div>
+        <div class="block comments" data-key="comments">
+          <strong>评论区</strong>
+          <p>Giscus / Twikoo 等互动系统</p>
+        </div>
+        <div class="block footer" data-key="search">
+          <strong>页脚与检索</strong>
+          <p>搜索入口、订阅与站点地图</p>
+        </div>
+      </div>
+    </section>
+    <aside class="panel">
+      <h2>模块开关</h2>
+      <div class="controls">
+        <label><input type="checkbox" data-key="subtitle" checked> 首页副标题</label><label><input type="checkbox" data-key="cover" > 文章封面</label><label><input type="checkbox" data-key="comments" checked> 评论系统</label><label><input type="checkbox" data-key="search" > 搜索能力</label><label><input type="checkbox" data-key="live2d" checked> Live2D 看板娘</label><label><input type="checkbox" data-key="activate_power_mode" checked> 打字特效</label><label><input type="checkbox" data-key="fireworks" checked> 烟花点击特效</label><label><input type="checkbox" data-key="canvas_fluttering_ribbon" checked> 彩带背景</label><label><input type="checkbox" data-key="mermaid" checked> Mermaid 图表</label><label><input type="checkbox" data-key="electric_clock" checked> 电子时钟挂件</label>
+      </div>
+      <h2>配置快照</h2>
+      <pre>{
+  &quot;title&quot;: &quot;Weyumm的博客&quot;,
+  &quot;theme&quot;: &quot;butterfly&quot;,
+  &quot;menu&quot;: [
+    &quot;首页&quot;,
+    &quot;仓库&quot;,
+    &quot;标签&quot;,
+    &quot;分类&quot;,
+    &quot;友链&quot;,
+    &quot;追番&quot;,
+    &quot;关于&quot;
+  ],
+  &quot;deploy_count&quot;: 3,
+  &quot;plugins&quot;: [
+    &quot;hexo-abbrlink&quot;,
+    &quot;hexo-asset-img&quot;,
+    &quot;hexo-bilibili-bangumi&quot;,
+    &quot;hexo-browsersync&quot;,
+    &quot;hexo-butterfly-clock-anzhiyu&quot;,
+    &quot;hexo-deployer-git&quot;,
+    &quot;hexo-generator-archive&quot;,
+    &quot;hexo-generator-baidu-sitemap&quot;,
+    &quot;hexo-generator-category&quot;,
+    &quot;hexo-generator-feed&quot;,
+    &quot;hexo-generator-index&quot;,
+    &quot;hexo-generator-search&quot;
+  ]
+}</pre>
+      <h2>菜单列表</h2>
+      <ul><li>首页</li><li>仓库</li><li>标签</li><li>分类</li><li>友链</li><li>追番</li><li>关于</li></ul>
+    </aside>
+  </div>
+  <script>
+    const state = {"subtitle": true, "cover": false, "comments": true, "search": false, "live2d": true, "activate_power_mode": true, "fireworks": true, "canvas_fluttering_ribbon": true, "mermaid": true, "electric_clock": true};
+    const alias = {
+      subtitle: ["subtitle"],
+      cover: ["cover"],
+      comments: ["comments"],
+      search: ["search"],
+      live2d: ["live2d"],
+      activate_power_mode: ["subtitle"],
+      fireworks: ["cover"],
+      canvas_fluttering_ribbon: ["cover"],
+      mermaid: ["main"],
+      electric_clock: ["live2d"],
+      menu: ["menu"]
+    };
+
+    function setBlockState(key, enabled) {
+      const targets = alias[key] || [key];
+      targets.forEach(name => {
+        document.querySelectorAll(`[data-key="${name}"]`).forEach(node => {
+          node.classList.toggle("is-off", !enabled);
+        });
+      });
+    }
+
+    document.querySelectorAll("input[data-key]").forEach(input => {
+      const key = input.dataset.key;
+      const enabled = !!state[key];
+      input.checked = enabled;
+      setBlockState(key, enabled);
+      input.addEventListener("change", () => setBlockState(key, input.checked));
+    });
+  </script>
+</body>
+</html>
