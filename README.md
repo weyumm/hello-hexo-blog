@@ -27,7 +27,7 @@
 | [第3章：Hexo 实战搭建](./docs/chapter3/chapter3_1.md) | 完成 Node.js/Git 安装、Hexo 初始化与部署 | ✅ |
 | [第4章：Butterfly 主题配置](./docs/chapter4/chapter2_1_主题下载与切换.md) | 主题下载切换、配置指南与功能扩展 | ✅ |
 | [第5章：内容创作与 Markdown](./docs/chapter5/chapter5_1.md) | Markdown 速查与第一篇文章写作 | ✅ |
-
+| [第7章：进阶探索与Halo对比](./docs/chapter7/chapter7_2_零基础Halo架构搭建与网站配置全指南_Cloudflare+1Panel+NPM+Halo.md) | Halo框架搭建教程与对比 | 🚧 |
 ## 章节直达
 
 - 第1章
@@ -47,14 +47,15 @@
 - 第5章
 - [Markdown 语法速查](./docs/chapter5/chapter5_1.md)
 - [撰写第一篇文章](./docs/chapter5/chapter5_2.md)
-
+- 第7章
+- [Halo框架搭建教程](./docs/chapter7/chapter7_2_零基础Halo架构搭建与网站配置全指南_Cloudflare+1Panel+NPM+Halo.md)
 ## 贡献者名单
 
 | 姓名 | 职责 | 简介 |
 | :---- | :---- | :---- |
 | Sm1les | 项目负责人 | 负责整体内容方向与项目推进 |
 | 马里奥 | 核心贡献者 | 参与教程内容共建与完善 |
-
+| [queenyn](https://github.com/queenyn) | 核心贡献者 | 参与Halo框架搭建教程部分内容的编写与维护 |
 ```md
 .
 ├── README.md
@@ -74,8 +75,12 @@
 │   │   ├── chapter2_3_常用功能扩展.md
 │   │   └── 互动演示/主题布局可视化.html
 │   └── chapter5/
-│       ├── chapter5_1.md
-│       └── chapter5_2.md
+│   │   ├── chapter5_1.md
+│   │   └── chapter5_2.md
+│   │
+│   └── chapter7/
+│       └── chapter7_2_零基础Halo架构搭建与网站配置全指南_Cloudflare+1Panel+NPM+Halo.md
+│
 └── package.json
 ```
 
