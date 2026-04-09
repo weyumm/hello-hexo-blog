@@ -37,7 +37,7 @@ https://datawhalechina.github.io/repo-template
 
 *注：表头可自定义，但必须在名单中标明项目负责人*
 
-"""
+```md
 .
 ├── README.md                   # 导读：如何使用本教程（包含学习路线图）
 ├── 01_入门与概念/              # 扫盲阶段
@@ -73,7 +73,7 @@ https://datawhalechina.github.io/repo-template
 │   └── 常见问题FAQ.md           # 报错大全（Hexo 常用报错对照表）
 ├── assets/                     # 存放教程中的 GIF 动图与截图
 └── scripts/                    # 自动化安装环境的 Shell 脚本
-"""
+```
 
 ## 参与贡献
 
