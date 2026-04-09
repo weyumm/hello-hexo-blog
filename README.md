@@ -5,6 +5,19 @@
 
 本项目是一个面向新手的 Hexo 博客教程，基于 VitePress 组织内容，覆盖从前端基础、GitHub Pages 认知，到 Hexo 搭建、Butterfly 主题配置、Markdown 写作与发文流程。
 
+## 项目简介
+
+在网络飞速发展的今天，个人博客已成为人们展示独特个性、分享知识见解以及记录学习成长的理想平台。GitHub 作为全球知名的开源代码托管平台，为我们提供了稳定且免费的存储服务；而 Hexo 作为一款基于 Node.js 的快速、简洁、高效的静态博客框架，两者结合，能让我们轻松搭建出既美观又功能丰富的个人博客。
+
+看到别人有自己的个人技术博客，自己也想要一个，于是走上了搭建(zhuang)个人(bi)博客之路。
+
+以下是一些优秀的 Hexo 博客，可以作为效果参考：
+
+- https://simonaking.com
+- https://akilar.top
+- https://blog.zhheo.com
+- https://xbxyftx.top
+
 ## 项目受众
 
 - 想从 0 开始搭建个人博客的同学
@@ -23,11 +36,12 @@
 | 章节名 | 简介 | 状态 |
 | ---- | ---- | ---- |
 | [第1章：前端与网页基础](./docs/chapter1/index.md) | 认识前端三件套与 GitHub Pages 托管逻辑 | ✅ |
-| [第2章：环境与基础操作](./docs/chapter2/chapter2_1.md) | 当前为章节模板，后续补充完整内容 | 🚧 |
-| [第3章：Hexo 实战搭建](./docs/chapter3/chapter3_1.md) | 完成 Node.js/Git 安装、Hexo 初始化与部署 | ✅ |
+| [第2章：环境搭建与准备](./docs/chapter2/01_安装Nodejs与Git.md) | Node.js/Git 安装、命令行入门、GitHub 账号注册 | ✅ |
+| [第3章：Hexo 实战搭建](./docs/chapter3/01_Hexo初始化.md) | Hexo 安装初始化、配置、部署到 GitHub Pages | ✅ |
 | [第4章：Butterfly 主题配置](./docs/chapter4/chapter2_1_主题下载与切换.md) | 主题下载切换、配置指南与功能扩展 | ✅ |
 | [第5章：内容创作与 Markdown](./docs/chapter5/chapter5_1.md) | Markdown 速查与第一篇文章写作 | ✅ |
 | [第7章：进阶探索与Halo对比](./docs/chapter7/chapter7_2_零基础Halo架构搭建与网站配置全指南_Cloudflare+1Panel+NPM+Halo.md) | Halo框架搭建教程与对比 | 🚧 |
+
 ## 章节直达
 
 - 第1章
@@ -35,10 +49,14 @@
 - [什么是 GitHub Pages](./docs/chapter1/02_什么是GitHubPages.md)
 - [互动实验：网页乐高挑战](./docs/chapter1/互动实验/网页乐高挑战.html)
 - 第2章
-- [第2.1节：第2.1节的标题](./docs/chapter2/chapter2_1.md)
-- [第2.2节：第2.2节的标题](./docs/chapter2/chapter2_2.md)
+  - [01 安装 Node.js 与 Git](./docs/chapter2/01_安装Nodejs与Git.md)
+  - [02 命令行操作入门](./docs/chapter2/02_命令行操作入门.md)
+  - [03 注册 GitHub 账号](./docs/chapter2/03_注册GitHub账号.md)
 - 第3章
-- [Hexo 搭建实战教程](./docs/chapter3/chapter3_1.md)
+  - [01 Hexo 初始化](./docs/chapter3/01_Hexo初始化.md)
+  - [02 本地博客预览](./docs/chapter3/02_本地博客预览.md)
+  - [03 配置文件详解](./docs/chapter3/03_配置文件详解.md)
+  - [04 部署到 GitHub Pages](./docs/chapter3/04_部署到GitHub.md)
 - 第4章
 - [01 主题下载与切换](./docs/chapter4/chapter2_1_主题下载与切换.md)
 - [02 Butterfly 配置指南](./docs/chapter4/chapter2_2_Butterfly配置指南.md)
@@ -56,6 +74,7 @@
 | Sm1les | 项目负责人 | 负责整体内容方向与项目推进 |
 | 马里奥 | 核心贡献者 | 参与教程内容共建与完善 |
 | [queenyn](https://github.com/queenyn) | 核心贡献者 | 参与Halo框架搭建教程部分内容的编写与维护 |
+| [ZXJC-niusile](https://github.com/ZXJC-niusile) | 核心贡献者 | 参与第二章、第三章的教程编写与整体内容完善 |
 ```md
 .
 ├── README.md
@@ -66,9 +85,14 @@
 │   │   ├── 02_什么是GitHubPages.md
 │   │   └── 互动实验/网页乐高挑战.html
 │   ├── chapter2/
-│   │   ├── chapter2_1.md
-│   │   └── chapter2_2.md
-│   ├── chapter3/chapter3_1.md
+│   │   ├── 01_安装Nodejs与Git.md
+│   │   ├── 02_命令行操作入门.md
+│   │   └── 03_注册GitHub账号.md
+│   ├── chapter3/
+│   │   ├── 01_Hexo初始化.md
+│   │   ├── 02_本地博客预览.md
+│   │   ├── 03_配置文件详解.md
+│   │   └── 04_部署到GitHub.md
 │   ├── chapter4/
 │   │   ├── chapter2_1_主题下载与切换.md
 │   │   ├── chapter2_2_Butterfly配置指南.md
