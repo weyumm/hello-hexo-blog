@@ -75,6 +75,7 @@
 | 马里奥 | 核心贡献者 | 参与教程内容共建与完善 |
 | [queenyn](https://github.com/queenyn) | 核心贡献者 | 参与Halo框架搭建教程部分内容的编写与维护 |
 | [ZXJC-niusile](https://github.com/ZXJC-niusile) | 核心贡献者 | 参与第二章、第三章的教程编写与整体内容完善 |
+| [monoy-ni](https://github.com/monoy-ni) | 核心贡献者 | 参与第一章、第五章的教程编写与整体内容完善 |
 ```md
 .
 ├── README.md
