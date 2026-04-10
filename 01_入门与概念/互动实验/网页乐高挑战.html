@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>网页乐高挑战</title>
+  <style>
+    :root {
+      --bg: linear-gradient(135deg, #fff7ed 0%, #eff6ff 100%);
+      --panel: rgba(255, 255, 255, 0.88);
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #2563eb;
+      --accent: #f97316;
+      --card: #ffffff;
+      --border: rgba(37, 99, 235, 0.16);
+      --shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      padding: 32px 20px 56px;
+    }
+
+    .page {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+    }
+
+    .panel {
+      background: var(--panel);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .preview {
+      padding: 28px;
+    }
+
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.05;
+    }
+
+    .subtitle {
+      margin: 14px 0 0;
+      max-width: 46ch;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .badge {
+      flex-shrink: 0;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(249, 115, 22, 0.12));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .lego {
+      background: var(--card);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 18px;
+      padding: 18px;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .lego:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+    }
+
+    .lego strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    .lego p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .cta-button,
+    .ghost-button {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 20px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+    }
+
+    .cta-button {
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 14px 24px rgba(37, 99, 235, 0.2);
+    }
+
+    .ghost-button {
+      color: var(--primary);
+      background: rgba(37, 99, 235, 0.08);
+    }
+
+    .cta-button:hover,
+    .ghost-button:hover,
+    .control-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .control-side {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .control-top {
+      padding: 24px 24px 16px;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    .control-top h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    .control-top p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .control-list {
+      display: grid;
+      gap: 12px;
+      padding: 18px 24px 24px;
+    }
+
+    .control-button {
+      width: 100%;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      background: white;
+      color: var(--text);
+      border-radius: 18px;
+      padding: 16px 18px;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .control-button span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .control-button:hover {
+      border-color: rgba(37, 99, 235, 0.28);
+      box-shadow: 0 12px 22px rgba(15, 23, 42, 0.08);
+    }
+
+    .mini-notes {
+      margin-top: auto;
+      background: rgba(15, 23, 42, 0.04);
+      padding: 18px 24px 24px;
+    }
+
+    .mini-notes h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .mini-notes ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .theme-ocean {
+      --bg: linear-gradient(135deg, #ecfeff 0%, #eef2ff 100%);
+      --primary: #0f766e;
+      --accent: #06b6d4;
+      --border: rgba(15, 118, 110, 0.18);
+    }
+
+    .theme-berry {
+      --bg: linear-gradient(135deg, #fff1f2 0%, #f5f3ff 100%);
+      --primary: #be185d;
+      --accent: #7c3aed;
+      --border: rgba(190, 24, 93, 0.18);
+    }
+
+    .theme-sun {
+      --bg: linear-gradient(135deg, #fffbeb 0%, #fff7ed 100%);
+      --primary: #c2410c;
+      --accent: #f59e0b;
+      --border: rgba(194, 65, 12, 0.18);
+    }
+
+    .large-title h1 {
+      font-size: clamp(38px, 5vw, 56px);
+    }
+
+    .warm-card .hero-card {
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.18), rgba(251, 146, 60, 0.16));
+    }
+
+    .highlight-lego .lego:nth-child(2) {
+      background: linear-gradient(135deg, rgba(255, 237, 213, 0.9), rgba(255, 255, 255, 0.96));
+      border-color: rgba(249, 115, 22, 0.28);
+    }
+
+    .hidden-tip .badge {
+      opacity: 0.2;
+    }
+
+    .code-hint {
+      margin-top: 20px;
+      padding: 16px 18px;
+      background: rgba(15, 23, 42, 0.05);
+      border-radius: 16px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .code-hint code {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        grid-template-columns: 1fr;
+      }
+
+      .preview-header {
+        flex-direction: column;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="theme-sun">
+  <main class="page">
+    <section class="panel preview" id="previewArea">
+      <div class="preview-header">
+        <div>
+          <p class="eyebrow">Web Lego Lab</p>
+          <h1 id="mainTitle">把网页像乐高一样拼起来</h1>
+          <p class="subtitle" id="subtitleText">
+            这个练习页让你一边点按钮，一边观察页面变化。每次改动，都是在感受 HTML、CSS、JavaScript 分别能做什么。
+          </p>
+        </div>
+        <div class="badge" id="statusBadge">新手模式</div>
+      </div>
+
+      <div class="hero-card">
+        <strong id="heroLead">网页的三块积木</strong>
+        <p id="heroCopy">
+          结构决定“页面里有什么”，样式决定“它看起来怎么样”，交互决定“点了以后会发生什么”。
+        </p>
+
+        <div class="hero-grid">
+          <article class="lego" id="cardHtml">
+            <strong>HTML</strong>
+            <p>像搭骨架，负责标题、段落、图片和按钮这些元素。</p>
+          </article>
+          <article class="lego" id="cardCss">
+            <strong>CSS</strong>
+            <p>像换皮肤，负责颜色、字体、间距和布局。</p>
+          </article>
+          <article class="lego" id="cardJs">
+            <strong>JavaScript</strong>
+            <p>像装机关，负责点击、切换、显示和隐藏。</p>
+          </article>
+          <article class="lego" id="cardMission">
+            <strong>你的任务</strong>
+            <p id="missionText">试着把这个页面变成你想要的风格，再按重置观察差异。</p>
+          </article>
+        </div>
+
+        <div class="cta-row">
+          <button class="cta-button" id="ctaButton" type="button">开始拼网页</button>
+          <button class="ghost-button" id="ghostButton" type="button">我来试试换主题</button>
+        </div>
+
+        <div class="code-hint" id="hintBox">
+          提示：当你看到颜色变化，通常是在体验 <code>CSS</code>；当你看到文字被改掉，通常是在操作 <code>HTML</code> 元素内容；当你点击按钮后页面立刻响应，那就是 <code>JavaScript</code> 在工作。
+        </div>
+      </div>
+    </section>
+
+    <aside class="panel control-side">
+      <div class="control-top">
+        <h2>操作面板</h2>
+        <p>每个按钮都对应一个小实验。点一下，看看右侧页面哪里发生了变化，再猜猜这次主要动到了 HTML、CSS 还是 JavaScript。</p>
+      </div>
+
+      <div class="control-list">
+        <button class="control-button" id="toggleTheme" type="button">
+          切换配色主题
+          <span>观察背景、强调色和按钮渐变一起变化。</span>
+        </button>
+        <button class="control-button" id="changeTitle" type="button">
+          修改大标题文字
+          <span>让页面标题在两种文案之间切换。</span>
+        </button>
+        <button class="control-button" id="changeMission" type="button">
+          替换任务卡片内容
+          <span>看看一段说明文字如何被即时更新。</span>
+        </button>
+        <button class="control-button" id="toggleLargeTitle" type="button">
+          放大标题
+          <span>感受样式类切换时的视觉差异。</span>
+        </button>
+        <button class="control-button" id="toggleHighlight" type="button">
+          高亮第二张卡片
+          <span>观察局部卡片背景和边框的变化。</span>
+        </button>
+        <button class="control-button" id="toggleBadge" type="button">
+          切换右上角徽章
+          <span>同时修改文字和显示状态。</span>
+        </button>
+        <button class="control-button" id="toggleWarmCard" type="button">
+          改变主卡片气氛
+          <span>让主卡片从清爽风变成暖色风。</span>
+        </button>
+        <button class="control-button" id="resetPage" type="button">
+          重置页面
+          <span>恢复到初始状态，重新开始实验。</span>
+        </button>
+      </div>
+
+      <div class="mini-notes">
+        <h3>观察提示</h3>
+        <ul>
+          <li>改“文字内容”时，重点看元素里的文案发生了什么变化。</li>
+          <li>改“主题颜色”时，重点看背景、按钮、标签是不是一起变了。</li>
+          <li>改“样式类”时，重点看字号、边框、阴影、背景是不是被批量换掉。</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    const body = document.body;
+    const previewArea = document.getElementById("previewArea");
+    const mainTitle = document.getElementById("mainTitle");
+    const missionText = document.getElementById("missionText");
+    const statusBadge = document.getElementById("statusBadge");
+    const ctaButton = document.getElementById("ctaButton");
+    const ghostButton = document.getElementById("ghostButton");
+    const hintBox = document.getElementById("hintBox");
+
+    const themes = ["theme-sun", "theme-ocean", "theme-berry"];
+    let themeIndex = 0;
+    let titleChanged = false;
+    let missionChanged = false;
+    let badgeActive = true;
+
+    function setTheme(index) {
+      themes.forEach((themeName) => body.classList.remove(themeName));
+      body.classList.add(themes[index]);
+    }
+
+    document.getElementById("toggleTheme").addEventListener("click", () => {
+      themeIndex = (themeIndex + 1) % themes.length;
+      setTheme(themeIndex);
+    });
+
+    document.getElementById("changeTitle").addEventListener("click", () => {
+      titleChanged = !titleChanged;
+      mainTitle.textContent = titleChanged
+        ? "原来网页真的可以像拼积木一样改"
+        : "把网页像乐高一样拼起来";
+    });
+
+    document.getElementById("changeMission").addEventListener("click", () => {
+      missionChanged = !missionChanged;
+      missionText.textContent = missionChanged
+        ? "给标题换文案、给卡片换颜色、再试着推测每步属于哪一层。"
+        : "试着把这个页面变成你想要的风格，再按重置观察差异。";
+    });
+
+    document.getElementById("toggleLargeTitle").addEventListener("click", () => {
+      previewArea.classList.toggle("large-title");
+    });
+
+    document.getElementById("toggleHighlight").addEventListener("click", () => {
+      previewArea.classList.toggle("highlight-lego");
+    });
+
+    document.getElementById("toggleBadge").addEventListener("click", () => {
+      badgeActive = !badgeActive;
+      statusBadge.textContent = badgeActive ? "新手模式" : "挑战模式";
+      previewArea.classList.toggle("hidden-tip", !badgeActive);
+    });
+
+    document.getElementById("toggleWarmCard").addEventListener("click", () => {
+      previewArea.classList.toggle("warm-card");
+    });
+
+    ctaButton.addEventListener("click", () => {
+      mainTitle.textContent = "你刚刚触发了一次交互";
+      hintBox.innerHTML = '这一步主要体现了 <code>JavaScript</code>：你点击按钮后，脚本立即修改了页面标题。';
+    });
+
+    ghostButton.addEventListener("click", () => {
+      themeIndex = (themeIndex + 1) % themes.length;
+      setTheme(themeIndex);
+      hintBox.innerHTML = '这一步主要在体验 <code>CSS</code>：你虽然是点了按钮，但变化结果集中体现在颜色和视觉风格上。';
+    });
+
+    document.getElementById("resetPage").addEventListener("click", () => {
+      themeIndex = 0;
+      titleChanged = false;
+      missionChanged = false;
+      badgeActive = true;
+
+      setTheme(themeIndex);
+      previewArea.classList.remove("large-title", "highlight-lego", "warm-card", "hidden-tip");
+      mainTitle.textContent = "把网页像乐高一样拼起来";
+      missionText.textContent = "试着把这个页面变成你想要的风格，再按重置观察差异。";
+      statusBadge.textContent = "新手模式";
+      hintBox.innerHTML = '提示：当你看到颜色变化，通常是在体验 <code>CSS</code>；当你看到文字被改掉，通常是在操作 <code>HTML</code> 元素内容；当你点击按钮后页面立刻响应，那就是 <code>JavaScript</code> 在工作。';
+    });
+
+    setTheme(themeIndex);
+  </script>
+</body>
+</html>
