@@ -41,6 +41,14 @@ const members = [
     links: [
       { icon: 'github', link: 'https://github.com/Sm1les' },
     ]
+  },
+  {
+    avatar: 'https://www.github.com/ZXJC-niusile.png',
+    name: 'ZXJC-niusile',
+    title: '核心贡献者',
+    links: [
+      { icon: 'github', link: 'https://github.com/ZXJC-niusile' },
+    ]
   }
 ]
 </script>
