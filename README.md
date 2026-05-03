@@ -40,7 +40,10 @@
 | [第3章：Hexo 实战搭建](./docs/chapter3/01_Hexo初始化.md) | Hexo 安装初始化、配置、部署到 GitHub Pages | ✅ |
 | [第4章：Butterfly 主题配置](./docs/chapter4/chapter2_1_主题下载与切换.md) | 主题下载切换、配置指南与功能扩展 | ✅ |
 | [第5章：内容创作与 Markdown](./docs/chapter5/chapter5_1.md) | Markdown 速查与第一篇文章写作 | ✅ |
+| [第6章：跨平台环境搭建](./docs/chapter6/chapter6_3.md) | 不同操作系统下的环境与工具准备（macOS 篇已上线） | 🚧 |
 | [第7章：进阶探索与Halo对比](./docs/chapter7/chapter7_2_零基础Halo架构搭建与网站配置全指南_Cloudflare+1Panel+NPM+Halo.md) | Halo框架搭建教程与对比 | 🚧 |
+| [第8章：进阶专题](./docs/chapter8/chapter8_1.md) | 章节内容编写中，敬请期待 | 🚧 |
+| [第9章：高级写作工作流](./docs/chapter9/chapter9_1.md) | Hexo + Obsidian + PicGo 自动化写作与图床联动 | ✅ |
 
 ## 章节直达
 
@@ -65,8 +68,17 @@
 - 第5章
 - [Markdown 语法速查](./docs/chapter5/chapter5_1.md)
 - [撰写第一篇文章](./docs/chapter5/chapter5_2.md)
+- 第6章
+  - [01 章节占位（待补充）](./docs/chapter6/chapter6_1.md) 🚧
+  - [02 章节占位（待补充）](./docs/chapter6/chapter6_2.md) 🚧
+  - [03 macOS 环境搭建指南](./docs/chapter6/chapter6_3.md) ✅
 - 第7章
-- [Halo框架搭建教程](./docs/chapter7/chapter7_2_零基础Halo架构搭建与网站配置全指南_Cloudflare+1Panel+NPM+Halo.md)
+  - [01 章节占位（待补充）](./docs/chapter7/chapter7_1.md) 🚧
+  - [02 Halo框架搭建教程](./docs/chapter7/chapter7_2_零基础Halo架构搭建与网站配置全指南_Cloudflare+1Panel+NPM+Halo.md) ✅
+- 第8章
+  - [01 章节占位（待补充）](./docs/chapter8/chapter8_1.md) 🚧
+- 第9章
+  - [01 Hexo + Obsidian + PicGo 高级工作流](./docs/chapter9/chapter9_1.md) ✅
 ## 贡献者名单
 
 | 姓名 | 职责 | 简介 |
@@ -99,12 +111,20 @@
 │   │   ├── chapter2_2_Butterfly配置指南.md
 │   │   ├── chapter2_3_常用功能扩展.md
 │   │   └── 互动演示/主题布局可视化.html
-│   └── chapter5/
+│   ├── chapter5/
 │   │   ├── chapter5_1.md
 │   │   └── chapter5_2.md
-│   │
-│   └── chapter7/
-│       └── chapter7_2_零基础Halo架构搭建与网站配置全指南_Cloudflare+1Panel+NPM+Halo.md
+│   ├── chapter6/
+│   │   ├── chapter6_1.md
+│   │   ├── chapter6_2.md
+│   │   └── chapter6_3.md
+│   ├── chapter7/
+│   │   ├── chapter7_1.md
+│   │   └── chapter7_2_零基础Halo架构搭建与网站配置全指南_Cloudflare+1Panel+NPM+Halo.md
+│   ├── chapter8/
+│   │   └── chapter8_1.md
+│   └── chapter9/
+│       └── chapter9_1.md
 │
 └── package.json
 ```
