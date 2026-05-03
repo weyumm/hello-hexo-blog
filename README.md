@@ -83,11 +83,13 @@
 
 | 姓名 | 职责 | 简介 |
 | :---- | :---- | :---- |
+| [张恒祯](https://github.com/weyumm) | 项目发起者 | hello-hexo 项目发起者，主要负责整体架构搭建与第四章 Butterfly 主题配置部分的撰写 |
 | Sm1les | 项目负责人 | 负责整体内容方向与项目推进 |
 | 马里奥 | 核心贡献者 | 参与教程内容共建与完善 |
 | [queenyn](https://github.com/queenyn) | 核心贡献者 | 参与Halo框架搭建教程部分内容的编写与维护 |
 | [ZXJC-niusile](https://github.com/ZXJC-niusile) | 核心贡献者 | 参与第二章、第三章的教程编写与整体内容完善 |
 | [monoy-ni](https://github.com/monoy-ni) | 核心贡献者 | 参与第一章、第五章的教程编写与整体内容完善 |
+| [张美琳](https://github.com/million-1001) | 核心贡献者 | 持续维护仓库并进行知识库整理归档；建立 README 与 docs/ 各章节之间的目录映射，补全新增第 6/7/8/9 章的跳转超链接与文件树 |
 ```md
 .
 ├── README.md
